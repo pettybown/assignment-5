@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class BST<K extends Comparable<K>, V> {
     private Node root;
     private int size = 0;
@@ -85,6 +86,23 @@ public class BST<K extends Comparable<K>, V> {
             node = node.left;
         }
         return node;
+    }
+    public Iterable<Node> iterator() {
+        ArrayList<Node> arrayList = inorderTraversal(new ArrayList<>(), root);
+        return (Iterable) arrayList;
+    }
+    private ArrayList<Node> inorderTraversal(ArrayList list, Node node) {
+        if(node == null) {
+            return null;
+        }
+        if (node.left != null) {
+            list.add(inorderTraversal(list, node.left));
+        }
+        list.add(node);
+        if (node.right != null) {
+            list.add(inorderTraversal(list, node.right));
+        }
+        return list;
     }
 
 }
