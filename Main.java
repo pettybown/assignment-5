@@ -1,15 +1,12 @@
-import java.util.Iterator;
-
+import java.util.Random;
 public class Main {
     public static void main(String[] args) {
         BST<Integer, String> bst = new BST();
-
-        for (int i = 0; i < 12; i++) {
-            bst.put(i, "Value " + i);
+        Random random = new Random();
+        for (int i = 1; i < 11; i++) {
+            bst.put(random.nextInt(-25, 25), "Value " + random.nextInt(-25, 25));
         }
-        Iterable it = bst.iterator();
-        for(Object el: it) {
-            System.out.println(el);
-        }
+        System.out.println(bst.getSize());
+        System.out.println(bst.getHeight());
     }
 }

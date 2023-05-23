@@ -104,5 +104,15 @@ public class BST<K extends Comparable<K>, V> {
         }
         return list;
     }
+    public int height(Node node) {
+        if (node == null) {
+            return 0;
+        } else {
+            return Math.max(height(node.left), height(node.right)) + 1;
+        }
+    }
 
+    public int getHeight() {
+        return height(root);
+    }
 }
